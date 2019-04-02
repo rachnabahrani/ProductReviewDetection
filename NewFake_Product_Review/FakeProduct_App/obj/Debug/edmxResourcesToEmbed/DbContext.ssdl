@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FakeProductReviewDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminLogin">
+    <Key>
+      <PropertyRef Name="aId" />
+    </Key>
+    <Property Name="aId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CategoryMaster">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductMaster">
+    <Key>
+      <PropertyRef Name="productId" />
+    </Key>
+    <Property Name="productId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="price" Type="varchar" MaxLength="50" />
+    <Property Name="img" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ReviewMaster">
+    <Key>
+      <PropertyRef Name="reviewId" />
+    </Key>
+    <Property Name="reviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" />
+    <Property Name="reviewTypeId" Type="int" />
+    <Property Name="userId" Type="int" />
+    <Property Name="siteId" Type="int" />
+    <Property Name="rating" Type="int" />
+    <Property Name="review" Type="varchar(max)" />
+    <Property Name="addedDate" Type="datetime" />
+    <Property Name="score" Type="float" />
+  </EntityType>
+  <EntityType Name="ReviewTypeMaster">
+    <Key>
+      <PropertyRef Name="reviewTypeId" />
+    </Key>
+    <Property Name="reviewTypeId" Type="int" Nullable="false" />
+    <Property Name="reviewType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SentiWordNet">
+    <Key>
+      <PropertyRef Name="SentiId" />
+    </Key>
+    <Property Name="SentiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pos" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Id" Type="varchar" MaxLength="10" />
+    <Property Name="PosScore" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="NegScore" Type="decimal" Precision="18" Scale="5" />
+    <Property Name="SynsetTerms" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SiteMaster">
+    <Key>
+      <PropertyRef Name="siteId" />
+    </Key>
+    <Property Name="siteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="siteName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="contact" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="500" />
+    <Property Name="score" Type="float" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FakeProductReviewDbModelStoreContainer">
+    <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReviewMaster" EntityType="Self.ReviewMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReviewTypeMaster" EntityType="Self.ReviewTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SentiWordNet" EntityType="Self.SentiWordNet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteMaster" EntityType="Self.SiteMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FakeProductReviewDbModelStoreContainer" CdmEntityContainer="FakeProductReviewDbEntities">
+    <EntitySetMapping Name="AdminLogins">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.AdminLogin">
+        <MappingFragment StoreEntitySet="AdminLogin">
+          <ScalarProperty Name="aId" ColumnName="aId" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryMasters">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.CategoryMaster">
+        <MappingFragment StoreEntitySet="CategoryMaster">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="category" ColumnName="category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductMasters">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.ProductMaster">
+        <MappingFragment StoreEntitySet="ProductMaster">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="img" ColumnName="img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReviewMasters">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.ReviewMaster">
+        <MappingFragment StoreEntitySet="ReviewMaster">
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="reviewId" ColumnName="reviewId" />
+          <ScalarProperty Name="reviewTypeId" ColumnName="reviewTypeId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="siteId" ColumnName="siteId" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="review" ColumnName="review" />
+          <ScalarProperty Name="addedDate" ColumnName="addedDate" />
+          <ScalarProperty Name="score" ColumnName="score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReviewTypeMasters">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.ReviewTypeMaster">
+        <MappingFragment StoreEntitySet="ReviewTypeMaster">
+          <ScalarProperty Name="reviewTypeId" ColumnName="reviewTypeId" />
+          <ScalarProperty Name="reviewType" ColumnName="reviewType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SentiWordNets">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.SentiWordNet">
+        <MappingFragment StoreEntitySet="SentiWordNet">
+          <ScalarProperty Name="SentiId" ColumnName="SentiId" />
+          <ScalarProperty Name="pos" ColumnName="pos" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PosScore" ColumnName="PosScore" />
+          <ScalarProperty Name="NegScore" ColumnName="NegScore" />
+          <ScalarProperty Name="SynsetTerms" ColumnName="SynsetTerms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteMasters">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.SiteMaster">
+        <MappingFragment StoreEntitySet="SiteMaster">
+          <ScalarProperty Name="siteId" ColumnName="siteId" />
+          <ScalarProperty Name="siteName" ColumnName="siteName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMasters">
+      <EntityTypeMapping TypeName="FakeProductReviewDbModel.UserMaster">
+        <MappingFragment StoreEntitySet="UserMaster">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

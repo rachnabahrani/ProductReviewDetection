@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FakeProductReviewDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="aId" />
+          </Key>
+          <Property Name="aId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductMaster">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="price" Type="varchar" MaxLength="50" />
+          <Property Name="img" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ReviewMaster">
+          <Key>
+            <PropertyRef Name="reviewId" />
+          </Key>
+          <Property Name="reviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productId" Type="int" />
+          <Property Name="reviewTypeId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="siteId" Type="int" />
+          <Property Name="rating" Type="int" />
+          <Property Name="review" Type="varchar(max)" />
+          <Property Name="addedDate" Type="datetime" />
+          <Property Name="score" Type="float" />
+        </EntityType>
+        <EntityType Name="ReviewTypeMaster">
+          <Key>
+            <PropertyRef Name="reviewTypeId" />
+          </Key>
+          <Property Name="reviewTypeId" Type="int" Nullable="false" />
+          <Property Name="reviewType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SentiWordNet">
+          <Key>
+            <PropertyRef Name="SentiId" />
+          </Key>
+          <Property Name="SentiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pos" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Id" Type="varchar" MaxLength="10" />
+          <Property Name="PosScore" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="NegScore" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="SynsetTerms" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SiteMaster">
+          <Key>
+            <PropertyRef Name="siteId" />
+          </Key>
+          <Property Name="siteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="siteName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="contact" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="500" />
+          <Property Name="score" Type="float" />
+          <Property Name="status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FakeProductReviewDbModelStoreContainer">
+          <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewMaster" EntityType="Self.ReviewMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewTypeMaster" EntityType="Self.ReviewTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SentiWordNet" EntityType="Self.SentiWordNet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteMaster" EntityType="Self.SiteMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FakeProductReviewDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="aId" />
+          </Key>
+          <Property Name="aId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="categoryId" />
+          </Key>
+          <Property Name="categoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductMaster">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReviewMaster">
+          <Key>
+            <PropertyRef Name="reviewId" />
+          </Key>
+          <Property Name="reviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reviewTypeId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="siteId" Type="Int32" />
+          <Property Name="rating" Type="Int32" />
+          <Property Name="review" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="addedDate" Type="DateTime" Precision="3" />
+          <Property Name="score" Type="Double" />
+          <Property Name="productId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ReviewTypeMaster">
+          <Key>
+            <PropertyRef Name="reviewTypeId" />
+          </Key>
+          <Property Name="reviewTypeId" Type="Int32" Nullable="false" />
+          <Property Name="reviewType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SentiWordNet">
+          <Key>
+            <PropertyRef Name="SentiId" />
+          </Key>
+          <Property Name="SentiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pos" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PosScore" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="NegScore" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="SynsetTerms" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SiteMaster">
+          <Key>
+            <PropertyRef Name="siteId" />
+          </Key>
+          <Property Name="siteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="siteName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="score" Type="Double" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FakeProductReviewDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminLogins" EntityType="Self.AdminLogin" />
+          <EntitySet Name="CategoryMasters" EntityType="Self.CategoryMaster" />
+          <EntitySet Name="ProductMasters" EntityType="Self.ProductMaster" />
+          <EntitySet Name="ReviewMasters" EntityType="Self.ReviewMaster" />
+          <EntitySet Name="ReviewTypeMasters" EntityType="Self.ReviewTypeMaster" />
+          <EntitySet Name="SentiWordNets" EntityType="Self.SentiWordNet" />
+          <EntitySet Name="SiteMasters" EntityType="Self.SiteMaster" />
+          <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FakeProductReviewDbModelStoreContainer" CdmEntityContainer="FakeProductReviewDbEntities">
+          <EntitySetMapping Name="AdminLogins">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.AdminLogin">
+              <MappingFragment StoreEntitySet="AdminLogin">
+                <ScalarProperty Name="aId" ColumnName="aId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryMasters">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.CategoryMaster">
+              <MappingFragment StoreEntitySet="CategoryMaster">
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="category" ColumnName="category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMasters">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.ProductMaster">
+              <MappingFragment StoreEntitySet="ProductMaster">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewMasters">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.ReviewMaster">
+              <MappingFragment StoreEntitySet="ReviewMaster">
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="reviewId" ColumnName="reviewId" />
+                <ScalarProperty Name="reviewTypeId" ColumnName="reviewTypeId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="siteId" ColumnName="siteId" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="review" ColumnName="review" />
+                <ScalarProperty Name="addedDate" ColumnName="addedDate" />
+                <ScalarProperty Name="score" ColumnName="score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewTypeMasters">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.ReviewTypeMaster">
+              <MappingFragment StoreEntitySet="ReviewTypeMaster">
+                <ScalarProperty Name="reviewTypeId" ColumnName="reviewTypeId" />
+                <ScalarProperty Name="reviewType" ColumnName="reviewType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SentiWordNets">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.SentiWordNet">
+              <MappingFragment StoreEntitySet="SentiWordNet">
+                <ScalarProperty Name="SentiId" ColumnName="SentiId" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PosScore" ColumnName="PosScore" />
+                <ScalarProperty Name="NegScore" ColumnName="NegScore" />
+                <ScalarProperty Name="SynsetTerms" ColumnName="SynsetTerms" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteMasters">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.SiteMaster">
+              <MappingFragment StoreEntitySet="SiteMaster">
+                <ScalarProperty Name="siteId" ColumnName="siteId" />
+                <ScalarProperty Name="siteName" ColumnName="siteName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="FakeProductReviewDbModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMaster">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
